@@ -4,7 +4,7 @@
 <p align="center">
 <img src="https://badgen.net/github/open-issues/iraizo/nvidia-overlay-hijack">
 <img src="https://badgen.net/github/stars/iraizo/nvidia-overlay-hijack">
-<img src="https://badgen.net/github/license/micromatch/micromatch">
+<img src="https://badgen.net/github/license/iraizo/nvidia-overlay-hijack">
 </p>
 
 ## <center>FAQ </center> 
