@@ -1,5 +1,5 @@
-# <center>NVIDIA Overlay Hijacker</center> <p align="center"><img width="20%" height="20%" src="https://user-images.githubusercontent.com/35413558/142688887-e474cc77-72a2-436e-a31f-6bb7625c3d33.png"></p>
-<center>Hijacking the overlay with C++ / Direct2D.</center>
+# <p align="center">NVIDIA Overlay Hijacker<p> <p align="center"><img width="20%" height="20%" src="https://user-images.githubusercontent.com/35413558/142688887-e474cc77-72a2-436e-a31f-6bb7625c3d33.png"></p>
+<p align="center">Hijacking the overlay with C++ / Direct2D.</p>
 <br>
 <p align="center">
 <img src="https://badgen.net/github/open-issues/iraizo/nvidia-overlay-hijack">
