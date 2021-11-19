@@ -59,56 +59,45 @@ bool Overlay::startup_d2d()
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
         }
-        else
+    }
+    return false;
+}
+
+        void Overlay::begin_scene()
         {
-            return false;
+            tar->BeginDraw();
         }
-    }
-    else
-    {
-        return false;
-    }
-}
 
-void Overlay::begin_scene()
-{
-    tar->BeginDraw();
-}
+        void Overlay::end_scene()
+        {
+            tar->EndDraw();
+        }
 
-void Overlay::end_scene()
-{
-    tar->EndDraw();
-}
+        void Overlay::clear_scene()
+        {
+            tar->Clear();
+        }
 
-void Overlay::clear_scene()
-{
-    tar->Clear();
-}
+        void Overlay::draw_text(int x, int y, const char* text, D2D1::ColorF color, ...)
+        {
+            char    buffer[4096];
+            int     length;
+            wchar_t out[256];
+            RECT    window_metrics;
 
-void Overlay::draw_text(int x, int y, const char* text, D2D1::ColorF color, ...)
-{
-    char    buffer[4096];
-    int     length;
-    wchar_t out[256];
-    RECT    window_metrics;
+            if (!GetWindowRect(window, &window_metrics))
+                return;
 
-    if (!GetWindowRect(window, &window_metrics))
-        return;
+            va_list arg_list;
+            va_start(arg_list, text);
+            vsnprintf(buffer, sizeof(buffer), text, arg_list);
+            va_end(arg_list);
 
-    va_list arg_list;
-    va_start(arg_list, text);
-    vsnprintf(buffer, sizeof(buffer), text, arg_list);
-    va_end(arg_list);
+            length = strlen(buffer);
 
-    length = strlen(buffer);
+            mbstowcs(out, buffer, length);
 
-    mbstowcs(out, buffer, length);
-
-    tar->DrawTextA(out, length, format, D2D1::RectF(x, y, window_metrics.right - window_metrics.left, window_metrics.bottom - window_metrics.top), brush);
-    brush->SetColor(color);
-}
+            tar->DrawTextA(out, length, format, D2D1::RectF(x, y, window_metrics.right - window_metrics.left, window_metrics.bottom - window_metrics.top), brush);
+            brush->SetColor(color);
+        }
